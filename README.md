@@ -24,6 +24,8 @@ library:
 ## Change Log
 22-08-2021 1:30pm - Set up my repository 
 22-08-2021 2:00pm - Authentication: As a user, I'd like to sign in with OAuth, so that I can authenticate to the site without creating yet-another username/password combo to potentially get hacked or lost.
+23-08-2021 2:30pm -  As a user, I'd like to sign in with OAuth, so that I can authenticate to the site without creating yet-another username/password combo to potentially get hacked or lost.
+23-08-2021 3:30pm - As a user, I'd like my books to persist, so that whenever I make changes, I can see the my full list of best books.
 
 ## Credit and Collaborations
 
@@ -40,6 +42,26 @@ Finish time: 3:00
 
 Actual time needed to complete: 1:30 
 
+Name of feature 2: As a user, I'd like my books to persist, so that whenever I make changes, I can see the my full list of best books.
+
+Estimate of time needed to complete: 2 hours
+
+Start time: 2:30 pm
+
+Finish time: 3:30 pm
+
+Actual time needed to complete: 1:00
+
+Name of feature 3: As a user, I'd like to see my list of books, so that I can track what's impacted me, and what's recommended to me.
+
+Estimate of time needed to complete: 2 hours
+
+Start time: 3:30 pm
+
+Finish time: 5:00 pm
+
+Actual time needed to complete: 1:30 
+
 #### What hours will you be available to communicate? 
 3pm-7pm 
 
@@ -52,6 +74,7 @@ stop working and try to refoucse again.
 Dima 
 * Work under pressure .
 * Follow the steps carefully .
+
 shamikh
 * Manage time will . 
 * Carefully write code .
