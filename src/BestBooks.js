@@ -18,11 +18,11 @@ class MyFavoriteBooks extends React.Component {
     }
   }
    componentDidMount = async ()=> {
-    const { user, isAuthenticated } = this.props.auth0;
+    const { user } = this.props.auth0;
     console.log(this.props.auth0);
     let emailaddress = user.email;
     console.log('email',emailaddress);
-    let bookData = await axios.get(`${process.env.REACT_APP_SERVER}/books?emailaddress=${emailaddress}`);
+    let bookData = await axios.get(`${process.env.REACT_APP_SERVER}/books?email=${emailaddress}`);
     await this.setState({
       books: bookData.data
     })
