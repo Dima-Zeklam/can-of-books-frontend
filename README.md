@@ -62,6 +62,24 @@ Finish time: 5:00 pm
 
 Actual time needed to complete: 1:30 
 
+Name of feature 4: Create: As a user, I'd like to add a new book to my shelf, so that I can keep my lists up to date with my latest books and recommendations.
+
+Estimate of time needed to complete: 2:30 hours
+
+Start time: 2:30 pm
+
+Finish time: 5:00 pm
+
+Actual time needed to complete: 2:30 
+Name of feature 5: Delete: As a user, I want to remove books from my list, so that only the most important books are on my shelf.
+
+Estimate of time needed to complete: 1 hours
+
+Start time: 5:00 pm
+
+Finish time: 6:00 pm
+
+Actual time needed to complete: 1:00 
 #### What hours will you be available to communicate? 
 3pm-7pm 
 
