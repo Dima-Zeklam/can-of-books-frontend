@@ -46,11 +46,7 @@ class MyFavoriteBooks extends React.Component {
       displayModel: !this.state.displayModel
     })
   }
-  // showDeleteForm =()=>{
-  //   this.setState({
-  //     showDeleteForm: !this.state.showDeleteForm
-  //   })
-  // }
+ 
 
   AddBookHandler = async (e) => {
 
