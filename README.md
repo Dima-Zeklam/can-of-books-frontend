@@ -80,6 +80,7 @@ Start time: 5:00 pm
 Finish time: 6:00 pm
 
 Actual time needed to complete: 1:00 
+,
 #### What hours will you be available to communicate? 
 3pm-7pm 
 
