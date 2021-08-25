@@ -11,7 +11,7 @@ import LogoutButton from './LogoutButton';
 
 class Header extends React.Component {
   render() {
-    const { user, isAuthenticated  } = this.props.auth0;
+    const {  isAuthenticated  } = this.props.auth0;
     return(
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Navbar.Brand>My Favorite Books</Navbar.Brand>
