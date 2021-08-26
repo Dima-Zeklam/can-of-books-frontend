@@ -6,7 +6,7 @@ import FormModel from './FormModel';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Button from 'react-bootstrap/Button';
 import './BestBooks.css';
-// import DeleteForm from './UbdateForm';
+import UbdateForm from './UbdateForm';
 const axios = require('axios');
 require('dotenv').config();
 
@@ -19,7 +19,9 @@ class MyFavoriteBooks extends React.Component {
     this.state = {
       books: [],
       show: false,
-      displayModel: false
+      displayModel: false,
+      displayUbdateModel: false,
+      bookToUpdate:{}
     }
   }
   componentDidMount = async () => {
@@ -29,10 +31,10 @@ class MyFavoriteBooks extends React.Component {
     let emailaddress = user.email;
     // console.log('email', emailaddress);
     let bookData = await axios.get(`${process.env.REACT_APP_SERVER}/books?email=${emailaddress}`);
-    bookData?await this.setState({
+    bookData ? await this.setState({
       books: bookData.data,
       show: true
-    }): this.setState({
+    }) : this.setState({
       books: [],
       show: false
     })
@@ -46,7 +48,7 @@ class MyFavoriteBooks extends React.Component {
       displayModel: !this.state.displayModel
     })
   }
- 
+
 
   AddBookHandler = async (e) => {
 
@@ -78,10 +80,30 @@ class MyFavoriteBooks extends React.Component {
     this.setState({
       books: DataInfo.data
     });
- 
+  }
+  bookToUpdate = async (bookInf) => { 
+    await this.setState({
+      displayUbdateModel: true,
+      bookToUpdate :bookInf,
+    });
+    
+  }
+  //  '/ubdateBook/:bookID'
+  updatebookHandler = async (bookInf) => {
 
+    let bookID = this.state.books._id;
+    console.log(bookID);
+    let bookData = await axios.put(`${process.env.REACT_APP_SERVER}/ubdateBook/${bookInf._id}`, bookInf);
+    this.setState({
+      books: bookData.data
+    })
   }
 
+  updateButtonHandler = () => {
+    this.setState({
+      displayUbdateModel: !this.state.displayUbdateModel
+    })
+  }
 
   render() {
 
@@ -112,9 +134,10 @@ class MyFavoriteBooks extends React.Component {
                   <Card.Text>
                     {element.email}
                   </Card.Text>
-                 
+
                 </Card.Body>
                 <Button onClick={() => this.DeleteBookHandler(element._id)}>Delete</Button>
+                <Button onClick={() => this.bookToUpdate(element)}>Update</Button>
               </Card>
             )
 
@@ -129,6 +152,12 @@ class MyFavoriteBooks extends React.Component {
           handleClose={this.handleClose}
           AddBookHandler={this.AddBookHandler}
         />
+        <UbdateForm
+          displayUbdateModel={this.state.displayUbdateModel}
+          updateButtonHandler={this.updateButtonHandler}
+          updatebookHandler={this.updatebookHandler} 
+          bookInf = {this.state.bookToUpdate}
+          />
       </>
     )
   }
