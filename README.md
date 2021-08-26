@@ -2,7 +2,7 @@
 # User Authentication with Auth0
 
 **Author**: Dima Zeklam & shamikh quraan
-**Version**: 1.0.0 
+**Version**: 3.0.0 
 
 ## Overview
 The ability for a user to securly login to an application to store their data is crucial, as a user he can authenticate to the site without creating yet-another username/password combo to potentially get hacked or lost.
@@ -26,6 +26,10 @@ library:
 22-08-2021 2:00pm - Authentication: As a user, I'd like to sign in with OAuth, so that I can authenticate to the site without creating yet-another username/password combo to potentially get hacked or lost.
 23-08-2021 2:30pm -  As a user, I'd like to sign in with OAuth, so that I can authenticate to the site without creating yet-another username/password combo to potentially get hacked or lost.
 23-08-2021 3:30pm - As a user, I'd like my books to persist, so that whenever I make changes, I can see the my full list of best books.
+24-8-2021 3:00pm - Create: As a user, I'd like to add a new book to my shelf, so that I can keep my lists up to date with my latest books and recommendations.
+24-8-2021 4:00pm - Delete: As a user, I want to remove books from my list, so that only the most important books are on my shelf.
+25-8-2021 2:00pm -  Update: As a user, I want to update book details on my list, so that I can change the book status, or update the book details as I learn more about it.
+
 
 ## Credit and Collaborations
 
@@ -80,7 +84,14 @@ Start time: 5:00 pm
 Finish time: 6:00 pm
 
 Actual time needed to complete: 1:00 
-,
+Name of feature 6: Update: As a user, I want to update book details on my list, so that I can change the book status, or update the book details as I learn more about it.
+Estimate of time needed to complete: 1 hours
+
+Start time: 3:00 pm
+
+Finish time: 4:00 pm
+
+Actual time needed to complete: 1:00 
 #### What hours will you be available to communicate? 
 3pm-7pm 
 
