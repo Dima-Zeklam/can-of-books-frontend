@@ -13,10 +13,12 @@ class Header extends React.Component {
   render() {
     const {  isAuthenticated  } = this.props.auth0;
     return(
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand>My Favorite Books</Navbar.Brand>
-        <Link to="/">Home</Link>
-        <Link to="/profile">Profile</Link>
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" >
+        
+        <Navbar.Brand style={{color:'red'}}>My Favorite Books</Navbar.Brand>
+        <Link to="/" style={{margin:'10px'}}>Home</Link>
+        <Link to="/profile" style={{margin:'10px'}}>Profile</Link>
+        <Link to="/books" style={{margin:'10px'}}>IT Books</Link>
         {/* TODO: if the user is logged in, render the `LogoutButton` - if the user is logged out, render the `LoginButton` */}
         { ( isAuthenticated ? <LogoutButton /> : <LoginButton />)}
       

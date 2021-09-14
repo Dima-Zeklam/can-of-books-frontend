@@ -7,6 +7,7 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 import Button from 'react-bootstrap/Button';
 import './BestBooks.css';
 import UbdateForm from './UbdateForm';
+require('./ITbooks.css');
 const axios = require('axios');
 require('dotenv').config();
 
@@ -21,7 +22,9 @@ class MyFavoriteBooks extends React.Component {
       show: false,
       displayModel: false,
       displayUbdateModel: false,
-      bookToUpdate:{}
+      bookToUpdate:{},
+     ITbooks:[],
+     showITbooks:false
     }
   }
   componentDidMount = async () => {
@@ -38,15 +41,18 @@ class MyFavoriteBooks extends React.Component {
       books: [],
       show: false
     })
-
     console.log(this.state.books);
-
+    
+    let Data = await axios.get(`${process.env.REACT_APP_SERVER}/getITbooks?email=${emailaddress}`);
+    await this.setState({ITbooks:Data.data,showITbooks:true});
+    
   }
 
   handleClose = () => {
     this.setState({
       displayModel: !this.state.displayModel
     })
+
   }
 
 
@@ -68,7 +74,8 @@ class MyFavoriteBooks extends React.Component {
     let bookInfoData = await axios.post(`${process.env.REACT_APP_SERVER}/addBook`, bookInfo);
 
     this.setState({
-      books: bookInfoData.data
+      books: bookInfoData.data,
+      
     })
     // console.log(this.state.books);
   }
@@ -81,6 +88,16 @@ class MyFavoriteBooks extends React.Component {
       books: DataInfo.data
     });
   }
+  /// delete it book // server.delete('/deleteITBook/:ID', deleteITBook);
+  deleteITBook = async (ID) => {
+
+    let DataInfo = await axios.delete(`${process.env.REACT_APP_SERVER}/deleteITBook/${ID}`)
+
+    this.setState({
+     ITbooks: DataInfo.data
+    });
+  }
+
   bookToUpdate = async (bookInf) => { 
     await this.setState({
       displayUbdateModel: true,
@@ -122,7 +139,7 @@ class MyFavoriteBooks extends React.Component {
         <div>
           {this.state.show && this.state.books.map((element, key) => {
             return (
-              <Card key={key} style={{ width: '18rem' }}>
+              <Card key={key} style={{ width: '18rem', margin:'30px' }} className="ITBooksCard" >
                 <Card.Body>
                   <Card.Title>{element.title}</Card.Title>
                   <Card.Text>
@@ -144,8 +161,36 @@ class MyFavoriteBooks extends React.Component {
           })
 
           }
-        </div>
 
+        </div>
+        {this.state.showITbooks && this.state.ITbooks.map((element, key) => {
+            return (
+              <Card key={key} style={{ width: '18rem',margin:'30px' }} className="ITBooksCard">
+                <Card.Body>
+                                <Card.Title>{element.title}</Card.Title>
+                                <Card.Text>
+                                    {element.subtitle}
+                                </Card.Text>
+                                <Card.Text>
+                                    {element.price}
+                                </Card.Text>
+                                <Card.Text>
+                                    <img src={element.image} alt={element.title} />
+                                </Card.Text>
+                                <Card.Text>
+                                    <a href={element.url}>Book URL</a>
+                                </Card.Text>
+
+                            </Card.Body>
+                <Button onClick={() => this.deleteITBook(element._id)}>Delete</Button>
+               
+              </Card>
+            )
+
+          })
+
+          }
+  
 
         <FormModel
           show={this.state.displayModel}

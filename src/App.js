@@ -11,6 +11,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import ITbooks from './ITbooks';
 
 
 class App extends React.Component {
@@ -34,7 +35,10 @@ class App extends React.Component {
               {/* TODO: add a route with a path of '/profile' that renders a `Profile` component */}
               <Profile />
             </Route >
-           
+            <Route exact path="/books">
+             
+              <ITbooks/>
+            </Route >
 
           </Switch>
           <Footer />
